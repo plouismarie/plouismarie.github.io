@@ -11804,10 +11804,10 @@ div#notebook {
 <span class="c1">#here we do a simple diff the we normalize with percentage to make it easier to appreciate</span>
 <span class="k">def</span> <span class="nf">timediff</span><span class="p">(</span><span class="n">old_way_time</span><span class="p">,</span><span class="n">new_way_time</span><span class="p">):</span>
     <span class="c1">##that was test values</span>
-    <span class="c1">#new_way_time,old_way_time=4,5</span>
+    <span class="c1">#new_way_time,old_way_time=1,3</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;old_way_time (s) : </span><span class="si">{:.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">old_way_time</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new_way_time (s) : </span><span class="si">{:.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_way_time</span><span class="p">))</span>
-    <span class="k">return</span> <span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">new_way_time</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">old_way_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">old_way_time</span><span class="o">/</span><span class="n">new_way_time</span>
 
 <span class="c1">#input</span>
 <span class="n">layer_0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -11824,7 +11824,7 @@ div#notebook {
 <span class="nb">print</span><span class="p">(</span><span class="n">layer_1_new</span><span class="p">)</span>
 
 <span class="c1">#timediff for each way to generate layer1</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1"> percent faster with new_way&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">timediff</span><span class="p">(</span><span class="n">time1_old</span><span class="p">,</span><span class="n">time1_new</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;layer1 generation is </span><span class="si">{:.2f}</span><span class="s1"> x faster with new_way&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">timediff</span><span class="p">(</span><span class="n">time1_old</span><span class="p">,</span><span class="n">time1_new</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -11840,12 +11840,12 @@ div#notebook {
 <pre>Enabling timecoding for : old_way
 Enabling timecoding for : new_way
 Layer1 result using : old_way
-[ 3.01892929 -1.85954045  2.32455188  2.42576524  2.50258642]
+[-0.16653828 -1.36826463  0.17835247  0.80225598 -1.52858783]
 Layer1 result using : new_way
-[ 3.01892929 -1.85954045  2.32455188  2.42576524  2.50258642]
-old_way_time (s) : 0.01067
-new_way_time (s) : 0.00031
-97.12 percent faster with new_way
+[-0.16653828 -1.36826463  0.17835247  0.80225598 -1.52858783]
+old_way_time (s) : 0.01145
+new_way_time (s) : 0.00022
+layer1 generation is 50.94 x faster with new_way
 </pre>
 </div>
 </div>
