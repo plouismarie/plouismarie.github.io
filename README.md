@@ -17,3 +17,5 @@ BUT "new_way" is faster and more optimized since we reduce the number of needed 
 That enables more and more appreciable reduction in time processing, as big as the input get dimensioned ( assuming we have a fair amount of zero value input features)
 
 This code shows how faster "new_way" gets us ( for that dummy, but easy to understand, example )
+
+nb : in jupyter, please restart the kernel each time you execute that code, then the caching in your system is not taking precedence influencing the processing time.
